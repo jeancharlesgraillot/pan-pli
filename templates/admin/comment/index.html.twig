@@ -1,0 +1,44 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Administration des commentaires{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <h1>Gestion des commentaires</h1>
+        <table class="table table-hover mt-5">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Pseudo</th>
+                    <th>Email</th>
+                    <th>Actif</th>
+                    <th>Rgpd</th>
+                    <th>Contenu</th>
+                    <th>Article</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for comment in pagination.data %}
+                <tr>
+                    <td>{{ comment.id }}</td>
+                    <td>{{ comment.nickname }}</td>
+                    <td>{{ comment.email }}</td>
+                    <td>{{ comment.isActive }}</td>
+                    <td>{{ comment.rgpd }}</td>
+                    <td>{{ comment.content }}</td>
+                    <td>{{ comment.article }}</td>
+                    <td>
+                        <a href="{{ path('admin_comments_edit', {'id': comment.id})}}" class="btn btn-secondary"><i class="fas fa-edit"></i></a>
+                        <a href="{{ path('admin_comments_delete', {'id': comment.id}) }}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        {% include 'admin/partials/pagination.html.twig' with {'route': 'admin_comments_index'} %}
+
+    </div>
+{% endblock %}

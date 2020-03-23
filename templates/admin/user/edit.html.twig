@@ -1,0 +1,25 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Attribution de rôle(s){% endblock %}
+
+{% block body %}
+
+    <div class="container">
+
+        <div class="bg-light p-4 greyBoxShadow">
+
+            <h1 class="mb-4">Attribuer des rôles à {{ user.firstname }}</h1>
+
+            {{ form_start(form) }}
+
+            {{ form_widget(form) }}
+
+            <button method="submit" class="btn btn-primary mt-2">Enregistrer les modifications</button>
+
+            {{ form_end(form) }}
+
+        </div>
+
+    </div>
+
+{% endblock %}

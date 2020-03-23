@@ -1,0 +1,38 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Administration des utilisateurs{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <h1>Gestion des utilisateurs</h1>
+        <table class="table table-hover mt-5">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Utilisateur</th>
+                    <th>Rôle</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for user in pagination.data %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.fullName }}</td>
+                    <td>{{ user.roles[0] }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>
+                        {# <a href="{{ path('admin_users_edit', {'id': user.id}) }}" class="btn btn-secondary rounded"><i class="fas fa-edit"></i></a> #}
+                        <a href="{{ path('admin_users_delete', {'id': user.id}) }}" class="btn btn-danger rounded"><i class="fas fa-trash"></i></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        {% include 'admin/partials/pagination.html.twig' with {'route': 'admin_users_index'} %}
+
+    </div>
+{% endblock %}

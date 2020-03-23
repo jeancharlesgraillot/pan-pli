@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Association Pan Pli{% endblock %}</title>
+        <link rel="shortcut icon" type="image/ico" href="/images/pan_pli_favicon.ico"/>
+        <link rel="stylesheet" href="/css/bootstrap_yeti.min.css">
+        <link rel="stylesheet" href="/css/site.css">
+        <script src="https://kit.fontawesome.com/b8cb650a86.js" crossorigin="anonymous"></script>
+        
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        {% include 'admin/partials/header.html.twig'%}
+
+        {% block body %}{% endblock %}
+
+        {% include 'admin/partials/footer.html.twig' %}
+
+        <script src="/js/jquery-3.4.1.slim.min.js"></script>
+        <script src="/js/popper.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

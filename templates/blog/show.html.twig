@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block body %}
+
+    <article class="container">
+        <div class="row bg-light greyBoxShadow">
+            <div class="col-lg-8 mx-auto py-4">
+                <h2 class="mb-4">{{ article.title }}</h2>
+                <p>Le <span>{{ article.createdAt|date('d/m/Y H:i') }}</span></p> 
+                <div class="my-3">
+                    <img class="mw-100" src="{{ article.coverImage }}" alt="{{ article.coverImage }}">
+                </div>
+                <p>Catégorie(s) :
+                    {% for category in article.categories %}
+                    <span>{{ category }}</span>
+                    {% endfor %}
+                </p>
+                {{ article.content|raw }}
+            </div>
+        </div>
+        <hr class="my-4">
+    </article>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-12">
+                
+                <h2 class="mb-4">Commentaires :</h2>
+                {% if article.comment | length > 0 %}
+                    {% for onecomment in article.comment %}
+                        {% if onecomment.isActive == 1 and onecomment.rgpd == 1 %}
+                        <div class="bg-light mb-3 p-3 greyBoxShadow">
+                            <p><strong class="mb-2">{{ onecomment.nickname }}</strong> a dit:</p>
+                            <div class="font-italic">
+                                {{ onecomment.content | raw}}
+                            </div>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+
+                {% endif %}
+                
+                <hr class="my-4">
+
+            </div>
+
+            <div class="col-12">
+
+                <h2>Inscrivez et/ou connectez-vous pour donner votre avis !</h2>
+
+                {% if app.user %}
+                <div class="alert alert-light mt-4">
+                    {{ form_start(form) }}
+                    {{ form_widget(form) }}
+                    <button type="submit" class="btn btn-success">Confirmer</button>
+                    {{ form_end(form) }}
+                {% endif %}
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+
+{% endblock %}

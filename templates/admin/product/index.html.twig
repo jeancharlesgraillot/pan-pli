@@ -1,0 +1,43 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Administration des produits{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <h1>Gestion des produits</h1>
+        <a href="{{ path('admin_products_create')}}" class="btn btn-primary rounded mt-3 mb-5">Ajouter un produit</a>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Nom de produit</th>
+                    <th>Slug</th>
+                    <th>Qualificatif</th>
+                    <th>Quantité</th>
+                    <th>Prix</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for product in pagination.data %}
+                <tr>
+                    <td>{{ product.id }}</td>
+                    <td>{{ product.productName }}</td>
+                    <td>{{ product.slug }}</td>
+                    <td>{{ product.qualifier }}</td>
+                    <td>{{ product.quantity }}</td>
+                    <td>{{ product.price }}</td>
+                    <td>
+                        <a href="{{ path('admin_products_edit', {'slug': product.slug})}}" class="btn btn-secondary rounded"><i class="fas fa-edit"></i></a>
+                        <a href="{{ path('admin_products_delete', {'id': product.id})}}" class="btn btn-danger rounded"><i class="fas fa-trash"></i></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        {% include 'admin/partials/pagination.html.twig' with {'route': 'admin_products_index'} %}
+
+    </div>
+{% endblock %}

@@ -1,0 +1,55 @@
+articleAuthorLabel: Auteur
+articleTitleLabel: Titre
+articleTitlePlaceholder: Tapez le titre de l'article
+articleContentLabel: Contenu
+articleCoverImageLabel: Image de couverture
+articleCoverImagePlaceholder: Sélectionnez l'image de couverture de l'article
+articleCategoryLabel: Catégories
+
+registrationFirstnameLabel: Prénom
+registrationFirstnamePlaceholder: Votre prénom
+registrationLastnameLabel: Nom
+registrationLastnamePlaceholder: Votre nom 
+registrationEmailLabel: Email
+registrationEmailPlaceholder: Votre adresse email
+registrationAvatarLabel: Avatar
+registrationAvatarPlaceholder: L'url de votre avatar (pas obligatoire)
+registrationPasswordLabel: Mot de passe
+registrationPasswordPlaceholder: Choisissez un mot de passe
+registrationPasswordConfirmationLabel: Confirmation du mot de passe
+registrationPasswordConfirmationPlaceholder: Confirmez votre mot de passe
+
+accountFirstnameLabel: Prénom
+accountFirstnamePlaceholder: Votre prénom
+accountLastnameLabel: Nom
+accountLastnamePlaceholder: Votre nom
+accountEmailLabel: Email
+accountEmailPlaceholder: Votre adresse email
+accountAvatarLabel: Avatar
+accountAvatarPlaceholder: L'url de votre avatar (pas obligatoire)
+
+passwordUpdateOldPasswordLabel: Ancien mot de passe
+passwordUpdateOldPasswordPlaceholder: Entrez votre mot de passe actuel
+passwordUpdateNewPasswordLabel: Nouveau mot de passe
+passwordUpdateNewPasswordPlaceholder: Entrez votre nouveau mot de passe
+passwordUpdatePasswordConfirmationLabel: Confirmation du mot de passe
+passwordUpdatePasswordConfirmationPlaceholder: Confirmez votre nouveau mot de passe
+
+categoryNameLabel: Nom de la catégorie
+categoryNamePlaceholder: Entrez un nom de catégorie
+
+commentContentLabel: Contenu du commentaire
+commentContentPlaceholder: Tapez le contenu du commentaire
+commentEmailLabel: Email
+commentEmailPlaceholder: Votre adresse email
+commentNicknameLabel: Pseudo
+commentNicknamePlaceholder: Entrez votre pseudo
+commentRgpdLabel: J'accepte que mes informations soient stockées dans la base de données de mon blog pour la gestion des commentaires. J'ai bien noté qu'en aucun cas ces données ne seront cédées à des tiers.
+commentIsActiveLabel: Activer ou désactiver la publication du commentaire
+
+roleTitleLabel: Titre
+roleTitlePlaceholder: Entrer le nom du rôle
+
+userRoleAttributionLabel: Attribuer rôle(s)
+
+ 

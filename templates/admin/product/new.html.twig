@@ -1,0 +1,20 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Création d'un produit{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <h1 class="mb-4">Créer un nouveau produit</h1>
+
+        {{ form_start(form) }}
+
+        {{ form_widget(form) }}
+
+        <button method="submit" class="btn btn-primary mt-3">Créer le nouveau produit</button>
+
+        {{ form_end(form) }}
+
+    </div>
+
+{% endblock %}

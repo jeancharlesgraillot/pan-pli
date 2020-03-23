@@ -1,0 +1,20 @@
+<div class="d-flex justify-content-center">
+    {% set page = pagination.page %}
+    {% set pages = pagination.pages %}
+    <ul class="pagination">
+        {# A li to return to the previous page #}
+        <li class="page-item {% if page == 1 %}disabled{% endif %}">
+        <a class="page-link" href="{{ path(route, {'page': page - 1}) }}">&laquo;</a>
+        </li>
+        {# A loop to display a number of li equivalent to the number of pages containing the items limit #}
+        {% for i in 1..pages %}
+        <li class="page-item {% if page == i %}active{% endif %}">
+        <a class="page-link" href="{{ path(route, {'page': i}) }}">{{i}}</a>
+        </li>
+        {% endfor %}
+        {# A li to go to the next page #}
+        <li class="page-item {% if page == pages %}disabled{% endif %}">
+        <a class="page-link" href="{{ path(route, {'page': page + 1}) }}">&raquo;</a>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Articles publiés{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    
+        <h1 class="my-5">Notre blog</h1>
+        {% for article in pagination.data %}
+            <p>Le {{ article.createdAt|date('d/m/Y H:i') }} 
+            {% if article.categories %}
+                {% for category in article.categories %} 
+                | {{ category }}
+                {% endfor %}
+            {% endif %}
+            {% if article.comment %}
+                | <span class="badge badge-pill badge-primary"><i class="far fa-comment"></i> {{ article.comment | length }}</span>
+            {% endif %}
+            </p>
+            <a class="text-decoration-none" href="{{ path('articles_show', {'slug': article.slug}) }}">
+                <div data-aos="zoom-in" class="card bg-light text-dark border-0 mb-3 greyBoxShadow">
+                    <div class="card-body beforeLargeArticleIndexStyle largeArticleIndexStyle mb-3">
+                        <div class="row">
+                            <div class="col-lg-4 mb-3">
+                                <img class="mw-100" src="{{ article.coverImage }}" alt="{{ article.coverImage }}">
+                            </div>
+                            <div class="col-lg-8">
+                                <h4 class="card-title font-weight-bold">{{ article.title }}</h4>
+                                <p class="card-text">
+                                    {{ article.content | raw }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        <hr class="my-4">  
+        {% endfor %}
+    {% include 'admin/partials/pagination.html.twig' with {'route': 'blog_index'} %}
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+
+<script>
+AOS.init();
+</script>
+
+{% endblock %}

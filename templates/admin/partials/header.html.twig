@@ -1,0 +1,71 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light m-0 p-0">
+  <a href="{{ path('homepage')}}" class="navbar-brand m-0 p-0">
+    <img src="/images/logo_panpli.jpg" width="100" height="100" alt="Logo de l'association Pan Pli">
+  </a>
+  <a class="navbar-brand ml-3" href="{{ path('homepage')}}">Association Pan Pli</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse ml-3" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ path('admin_dashboard') }}">
+          <i class="mr-1 fas fa-tools"></i>Dashboard
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="{{ path('admin_articles_index')}}" class="nav-link">
+          <i class="mr-1 far fa-newspaper"></i>Articles
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="{{ path('admin_categories_index')}}" class="nav-link">
+          <i class="mr-1 far fa-folder"></i>Catégories
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="{{ path('admin_comments_index')}}" class="nav-link">
+          <i class="mr-1 fas fa-comments"></i>Commentaires
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="{{ path('admin_users_index')}}" class="nav-link">
+          <i class="mr-1 fas fa-users"></i>Utilisateurs
+        </a>
+      </li>
+      {# <li class="nav-item">
+        <a href="{{ path('admin_roles_index')}}" class="nav-link">
+          <i class="mr-1 fas fa-user-tag"></i></i>Rôles
+        </a>
+      </li> #}
+      {# <li class="nav-item">
+        <a href="{{ path('admin_products_index')}}" class="nav-link">
+          <i class="mr-1 fab fa-product-hunt"></i>Produits
+        </a>
+      </li> #}
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a href="{{ path('homepage') }}" target="_blank" class="nav-link">
+          <i class="mr-1 fas fa-eye"></i>Voir le site
+        </a>
+      </li>
+      {% if app.user %}
+      <li class="nav-item">
+        <a href="{{ path('admin_account_logout') }}" class="nav-link">Déconnexion</a>
+      </li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>
+
+{% for label, messages in app.flashes %}
+  <div class="container">
+    <div class="alert alert-{{ label }}">
+      {% for message in messages %}
+        <p>{{ message | raw }}</p>
+      {% endfor %}
+    </div>
+  </div>
+{% endfor %}

@@ -1,0 +1,139 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Tableau de bord{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="card bg-light text-dark mb-3 text-center">
+                    <div class="card-body">
+                        <div class="row d-flex justify-content-around align-items-center">
+                            <div class="col-4">
+                                <i class="fas fa-users fa-3x"></i>
+                            </div>
+                            <div class="col-8">
+                                <h4 class="card-title m-0">{{ stats.users }} utilisateurs inscrits</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card bg-light text-dark mb-3 text-center">
+                    <div class="card-body">
+                        <div class="row d-flex justify-content-around align-items-center">
+                            <div class="col-4">
+                                <i class="far fa-newspaper fa-3x"></i>
+                            </div>
+                            <div class="col-8">
+                                <h4 class="card-title m-0">{{ stats.articles }} articles</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card bg-light text-dark mb-3 text-center">
+                    <div class="card-body">
+                        <div class="row d-flex justify-content-around align-items-center">
+                            <div class="col-4">
+                                <i class="fas fa-comments fa-3x"></i>
+                            </div>
+                            <div class="col-8">
+                                <h4 class="card-title m-0">{{ stats.comments }} commentaires</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {# <div class="col">
+                <div class="card bg-light text-dark mb-3 text-center">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-4">
+                                <i class="fab fa-product-hunt fa-3x"></i>
+                            </div>
+                            <div class="col-8">
+                                <h4 class="card-title">{{ stats.products }} produits</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>         #}
+            <div class="col">
+                <div class="card bg-light text-dark mb-3 text-center">
+                    <div class="card-body">
+                        <div class="row d-flex justify-content-around align-items-center">
+                            <div class="col-4">
+                                <i class="fas fa-comments fa-3x"></i>
+                            </div>
+                            <div class="col-8">
+                                <h4 class="card-title m-0">{{ stats.categories }} catégories</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col">
+                <div class="alert alert-success">
+                    <h2 class="alert-heading my-3"><i class="fas fa-arrow-up"></i> Les articles populaires</h2>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Article</th>
+                                <th>Auteur</th>
+                                <th>Commentaires</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for article in popularArticles %}
+                            <tr>
+                                <td>{{ article.title }}</td>
+                                <td>
+                                    <img src="{{ article.picture }}" alt="" class="avatar avatar-mini">
+                                    {{ article.firstName }} {{ article.lastName }}
+                                </td>
+                                <td class="text-center">
+                                <span class="badge badge-dark">{{ article.comments }}</span>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col">
+                <div class="alert alert-danger">
+                    <h2 class="alert-heading my-3"><i class="fas fa-arrow-down"></i> Les articles les moins populaires</h2>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Article</th>
+                                <th>Auteur</th>
+                                <th>Commentaires</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for article in unpopularArticles %}
+                            <tr>
+                                <td>{{ article.title }}</td>
+                                <td>
+                                    <img src="{{ article.picture }}" alt="" class="avatar avatar-mini">
+                                    {{ article.firstName }} {{ article.lastName }}
+                                </td>
+                                <td class="text-center">
+                                <span class="badge badge-dark">{{ article.comments }}</span>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,82 @@
+html{
+    font-family: "Verdana";
+}
+
+body {
+    margin-top: 150px;
+}
+
+nav, footer{
+   font-family: "Verdana";
+}
+
+.panpli span{
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.greyBorder{
+    border-style: solid;
+    border-width: 0px 1px 0px 1px;
+    border-color: rgba(157, 154, 163);
+}
+
+.greyText{
+    color:rgba(157, 154, 163);
+}
+
+.greyBoxShadow{
+    box-shadow: 5px 5px 5px rgba(170, 170, 170);
+}
+
+.blackBoxShadow{
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, .75);
+}
+
+.whiteBackgroundColor{
+    background-color: rgba(255, 255, 255);
+}
+
+.panpliGreyBanner{
+    background-color: #332d2b;
+}
+
+.navbar{
+    position: fixed;
+    top: 0%;
+    width: 100%;
+    z-index: 9999;
+    min-height: 100px;
+}
+
+.avatar{
+    max-width: 128px;
+    max-height: 128px;
+    border-radius: 50%;
+}
+
+.avatar-medium{
+    max-width: 64px;
+    max-height: 64px;
+}
+
+.avatar-mini{
+    max-width: 24px;
+    max-height: 24px;
+}
+
+.cautions ul li{
+    list-style-type: disclosure-closed;
+}
+
+.beforeLargeArticleIndexStyle {
+    max-height: 400px;
+    overflow: hidden;
+}
+
+/* Large devices (large desktops, 992px and up) */
+@media (min-width: 992px) {
+    .largeArticleIndexStyle{
+        max-height: 200px;
+        overflow: hidden;
+    }
+}
